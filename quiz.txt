@@ -1,0 +1,74 @@
+5. Which component generated during compilation represents the actual code that is stored on the blockchain after the contract deployment process is complete? Deployed Bytecode
+6. When a smart contract is compiled, what standard interface specification is generated to define how applications can interact with it? Application Binary Interface (ABI)
+1. What essential configuration detail specifies the network address required for tools and applications to communicate with a running blockchain node? RPC URL
+4. What cryptographic element is essential for verifying that a transaction was authorized by the owner of the sending account? A digital signature generated using the sender's private key.
+5. Which component of a transaction's data structure serves as a counter to ensure sequential processing and prevent duplication from a specific sender? Nonce
+
+4. What is the primary risk associated with deploying smart contract bytecode to a blockchain execution environment it was not specifically compiled for? Deployment failure or runtime errors due to unrecognized or incompatible machine instructions.
+7. In the context of EVM-compatible transactions, what identifier typically represents the original, pre-EIP-1559 transaction format? `0x0`
+9. Which transaction type is primarily associated with the introduction of a base fee and priority fee mechanism aimed at improving gas price predictability? Type 2 (EIP-1559)
+10. What underlying standard provides a framework allowing EVM-compatible systems to recognize and process different transaction structures beyond the original format? EIP-2718 (Typed Transaction Envelope)
+11. Besides 'pending' (waiting) and 'mined' (confirmed), what is another possible status for a transaction that has been submitted to the network? Dropped or Replaced
+
+2. When testing smart contracts, what is the typical purpose of using functions or directives like `vm.expectRevert()` or similar constructs? To assert that a specific function call fails under defined conditions, ensuring proper error handling.
+3. Which Foundry command-line tool is specifically mentioned for interacting with contracts, including inspecting storage? cast
+
+7. When a smart contract's constructor assigns `msg.sender` to a state variable (e.g., `owner`), and this contract is deployed via a script called from a test that uses a broadcast mechanism (like Foundry's `vm.startBroadcast`), what address is typically assigned? The default deployer/sender account configured in the testing or scripting environment.
+9. In smart contract development, how can deployment scripts dynamically select network-specific parameters like contract addresses? By checking the `block.chainid` and using conditional logic or a configuration contract.
+10. What architectural pattern helps manage varying external contract addresses (e.g., oracles, tokens) across different blockchain networks (like mainnet, testnets, and local)?
+Employing a dedicated configuration contract that selects and returns the appropriate address based on the current network identifier.
+
+1. In Solidity smart contracts, what is a common method to verify if an address variable, intended to hold a deployed contract instance, has already been populated? Check if the address variable is equal to `address(0)`.
+2. What is a common reason for changing internal data fields from publicly accessible to private and introducing specific access functions? To enforce controlled access to the data and potentially reduce operational costs.
+3. In Foundry testing, which cheatcode is used to assert that the immediately following function call should fail and revert? vm.expectRevert()
+4. When writing tests in Foundry, how can you simulate a specific address being the `msg.sender` for a single subsequent function call? Using `vm.prank(address)` before the call.
+7. Which Foundry cheatcode utility is commonly used to generate a fresh, deterministic address for use within tests? makeAddr(string memory label)
+9. How does Foundry typically manage the state of a contract between the execution of different test functions within the same test contract file? Each test function usually runs with a fresh instance of the contract, initialized by the `setUp` function, ensuring isolation.
+10. What is the primary function of Foundry's Chisel tool? To interactively test Solidity code snippets in a terminal-based REPL environment.
+
+1. Within Foundry tests, what role do 'cheatcodes' play? They allow developers to manipulate the environment state (e.g., account balances, caller addresses) for specific test scenarios.
+2. Why might smart contract tests written for the EVM behave differently when executed on a zkEVM? Because zkEVMs prioritize EVM-equivalence, not exact replication, leading to differences in areas like precompiles, low-level operations, and native features.
+3. What is a primary benefit of using a `Makefile` in conjunction with development frameworks like Foundry? Automating repetitive command-line tasks such as building, testing, and deploying contracts.
+4. To execute a specific set of commands defined under the target name `deploy-testnet` in a `Makefile`, which command would you run in the terminal? make deploy-testnet
+
+1. When developing a simple web page locally, which method best simulates how the page would be served by a real web server? Using a local development server tool or extension.
+2. What core security principle ensures that a web application cannot arbitrarily spend a user's cryptocurrency or execute unauthorized blockchain transactions via a browser wallet?
+The wallet requires explicit user confirmation before signing and broadcasting any transaction.
+3. Within JavaScript libraries like `ethers.js`, what function does a 'Provider' primarily serve when initialized with `window.ethereum`?
+It acts as an abstraction layer to communicate with the blockchain network selected in the user's wallet via its RPC connection.
+5. When a user clicks a 'Connect Wallet' button on a website designed for blockchain interaction, what action does the website's code typically initiate through the wallet's provider API?
+Request access to the user's public wallet address(es).
+8. What is a function selector in the context of Ethereum smart contracts?
+A short identifier derived from a function's signature, used to specify which function to call in the compiled contract bytecode.
+9. What does 'calldata' contain in an Ethereum transaction that interacts with a smart contract function?
+The function selector followed by the ABI-encoded arguments for that function.
+10. How can command-line tools like Foundry's `cast` help in understanding the arguments being passed in a transaction's calldata?
+By using a decoding command (like `cast --calldata-decode`) along with the function signature and the raw calldata.
+11. How does a decentralized application (dApp) usually gain the ability to request transaction signatures for a specific user account via a browser wallet?
+By obtaining a 'signer' object, derived from the provider.
+
+4. How does a smart contract typically initiate a request for random numbers using Chainlink VRF V2? By calling the `requestRandomWords` function on the VRF Coordinator contract instance.
+6. In secure callback patterns for smart contracts interacting with external systems, why might an `external` function be used to receive the initial callback before invoking an `internal` function containing the core logic? To perform security checks, such as verifying that the caller is the expected authorized external source, before executing the main logic.
+9. When programmatically triggering a value transfer using a low-level call mechanism that returns a success status, what is the most critical next step? Verify the success status return value before proceeding.
+10. When designing a system that progresses through several distinct phases, what programming construct helps improve code clarity and reduce errors compared to using multiple simple true/false flags? Enumerations (enums)
+
+2. How can a dynamic array of addresses (`address payable[]`) most efficiently be effectively reset to an empty state within a Solidity smart contract? By assigning a new, empty array instance to the variable (e.g., `variableName = new address payable[](0);`).
+1. What fundamental limitation prevents smart contracts from executing actions based purely on the passage of time or external conditions? They cannot initiate transactions themselves; they require an external trigger.
+2. In the context of Chainlink Automation, how are time-based triggers defined? Using Cron expressions to specify a recurring schedule.
+3. When registering an upkeep for an unverified smart contract with Chainlink Automation, what information is required besides the contract address? The contract's ABI (Application Binary Interface).
+4. Compared to using simple revert statements or custom errors without parameters, what key capability do parameterized custom errors add? The ability to return dynamic data reflecting the contract's state when the error occurred.
+5. According to common conventions, how might a custom error be named within a contract called 'TokenSale'? `TokenSale__InsufficientBalance`
+6. Which Solidity code snippet correctly defines a custom error named `InvalidInput` that accepts a `uint256` parameter? `error InvalidInput(uint256 providedValue);`
+8. In Solidity, if a contract `MyContract` defines an enum `MyState { STATE_A, STATE_B }`, how would you typically access the value corresponding to `STATE_A` from outside the contract or within a test? MyContract.MyState.STATE_A
+
+2. What fundamental role does an Application Binary Interface (ABI) play when interacting with compiled smart contracts? It defines the standard way to call contract functions and interpret returned data, acting as an interface description.
+3. In scenarios involving multiple inheritance, what factor primarily determines the specific parent implementation called when using the 'super' keyword within an overridden function? The order in which the parent contracts are listed in the child contract's definition.
+9. When aiming to deploy a smart contract from Remix to a live blockchain network (like Ethereum or Polygon), which deployment environment setting is typically selected? Injected Provider (e.g., MetaMask).
+
+
+
+
+
+- what are foundry cheatcodes?
+- what is chisel/cast?
+- forge snapshot?

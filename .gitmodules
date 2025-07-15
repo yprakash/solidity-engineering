@@ -1,0 +1,6 @@
+[submodule "fundme/lib/chainlink-brownie-contracts"]
+	path = fundme/lib/chainlink-brownie-contracts
+	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
+[submodule "fundme/lib/foundry-devops"]
+	path = fundme/lib/foundry-devops
+	url = https://github.com/Cyfrin/foundry-devops

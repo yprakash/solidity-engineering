@@ -1,0 +1,25 @@
+git clone https://github.com/yprakash/solidity-engineering.git
+cd solidity-engineering
+mkdir fundme
+cd fundme
+forge init --no-git
+cast --to-base <gas_amount> dec
+cast wallet list
+cast wallet import defaultKey --interactive
+
+forge install smartcontractkit/chainlink-brownie-contracts --no-commit
+
+deploy a contract using forge
+forge create SimpleStorage --rpc-url http://127.0.0.1:7545 --interactive
+
+forge script script/DeploySimpleStorage.s.sol --rpc-url http://127.0.0.1:8545 --broadcast --private-key 0xKEY
+
+forge test --match-test testPriceFeedVersion -vvv
+forge test --match-test testPriceFeedVersion -vvv --fork-url $SEPOLIA_RPC_URL
+forge coverage --fork-url $SEPOLIA_RPC_URL
+forge install Cyfrin/foundry-devops
+
+
+if we don't specify an RPC url in forge commands, it run your scripts on a temporary anvil chain.
+vm is a special keyword we can use only in Foundry. Its related to something called cheatcodes.
+vm.startBroadcast() says, everything after this line inside of this function, you should actually send to the RPC.
