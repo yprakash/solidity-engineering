@@ -1,12 +1,16 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[codz]
-*$py.class
 
 # C extensions
 *.so
 
 # Foundry forge/solidity temp files
+*/cache/
+*/lib/
+*/out/
+*/flat/
+flat/
+.abi_cache*
 cache/
 lib/
 out/
@@ -14,30 +18,13 @@ out/
 # Distribution / packaging
 .Python
 build/
-develop-eggs/
 dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 MANIFEST
 
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# Logs
+*.log
+*.out
+*.err
 
 # Unit test / coverage reports
 htmlcov/
@@ -53,9 +40,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
-
-# Sphinx documentation
-docs/_build/
 
 # PyBuilder
 .pybuilder/
@@ -76,7 +60,7 @@ __pypackages__/
 
 # Environments
 .env
-.envrc
+.env.*
 .venv
 env/
 venv/
@@ -89,19 +73,5 @@ cython_debug/
 
 # PyCharm
 .idea/
-
-# Abstra
-# Abstra is an AI-powered process automation framework.
-# Ignore directories containing user credentials, local state, and settings.
-# Learn more at https://abstra.io/docs
-.abstra/
-
 # Visual Studio Code
 .vscode/
-
-# Cursor
-#  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
-#  exclude from AI features like autocomplete and code analysis. Recommended for sensitive data
-#  refer to https://docs.cursor.com/context/ignore-files
-.cursorignore
-.cursorindexingignore

@@ -4,3 +4,15 @@
 [submodule "fundme/lib/foundry-devops"]
 	path = fundme/lib/foundry-devops
 	url = https://github.com/Cyfrin/foundry-devops
+[submodule "chainlink-fundamentals/lib/forge-std"]
+	path = chainlink-fundamentals/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "chainlink-fundamentals/lib/openzeppelin-contracts"]
+	path = chainlink-fundamentals/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "chainlink-fundamentals/lib/chainlink-brownie-contracts"]
+	path = chainlink-fundamentals/lib/chainlink-brownie-contracts
+	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
+[submodule "event-driven-automation/lib/chainlink-brownie-contracts"]
+	path = event-driven-automation/lib/chainlink-brownie-contracts
+	url = https://github.com/smartcontractkit/chainlink-brownie-contracts
